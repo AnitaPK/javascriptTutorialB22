@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+    <style>
+        .colorBlue{
+            color:blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 style="" id="" title="heading">heading</h1>
+    <p id="changeContent" >Paragraph</p>
+    <button onclick="changeContent();">change to click text</button>
+
+    <p id="para1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur, eaque!</p>
+    <button onclick="toggleBoldNormal();">boldNormal</button>
+    
+    <script>
+        function changeContent(){
+            document.getElementById('changeContent').innerHTML = "paragraph2";
+            // document.getElementById('changeContent').style.color = 'blue';
+            document.getElementById('changeContent').className = 'colorBlue';
+            // p.classList.add('colorBlue');
+        }
+
+        function toggleBoldNormal(){
+            checkfont = document.getElementById('para1');
+            if(checkfont.style.fontWeight == 'bold'){
+            checkfont.style.fontWeight = 'normal';
+            }else{
+            checkfont.style.fontWeight = 'bold';
+            }
+        }
+    </script>
+</body>
+</html>

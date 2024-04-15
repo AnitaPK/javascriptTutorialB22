@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .divClass{
+            width: 50%;
+            margin: 5px auto;
+            height: 300px;
+            background-color: bisque;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <ul id="parentUL"></ul>
+    <div id="parentDiv"></div>
+<ul id="showFruits"></ul>
+    <button onclick="addItem();">click to add Items</button>
+<script>
+    function addItem(){
+    parentUL = document.getElementById('parentUL');
+    newLiItem = document.createElement('li');
+    textItem = document.createTextNode('New Item');
+    // newLiItem.innerHTML = 'New Item';
+    newLiItem.appendChild(textItem);
+    console.log(newLiItem);
+    parentUL.appendChild(newLiItem);
+// code for div 
+parentDiv = document.getElementById('parentDiv');
+parentDiv.className = 'divClass';
+
+str = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, veritatis!";
+newP = document.createElement('p');
+newP.innerHTML = str; 
+parentDiv.appendChild(newP);
+
+arr = ['Mango','chickoo','Orange'];
+parentUL1 = document.querySelector('#showFruits');
+arr.forEach(elemt => {
+    liList = document.createElement('li');
+    liItem = document.createTextNode(elemt);
+    liList.appendChild(liItem);
+    parentUL1.appendChild(liList);    
+});
+contact = [{name1:'John', email:'john@email.com',phone:2344556789, add:'pune'},
+{name1:'John', email:'john@email.com',phone:2344556789, add:'pune'},
+{name1:'John', email:'john@email.com',phone:2344556789, add:'pune'}];
+contact.forEach(elmn =>{
+    // obj[0] elmn = {name1:'John', email:'john@email.com',phone:2344556789, add:'pune'} 
+    for (i in elmn){
+        elmn[i]
+    }
+})
+    }
+
+</script>
+
+</body>
+</html>

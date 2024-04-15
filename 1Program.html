@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<pre>
+    Datatypes ----
+
+            1. string 
+            2. Number 
+            3. Boolean
+            4. Object array  object set map function 
+            5. function 
+            6. BigInt
+            7. symbol
+            8. Null 
+            9. undefined
+
+
+</pre>
+
+<button onclick="alertMgs();">Click me show alert message</button>
+<button onclick="WriteMgs();">Click me show document.write message</button>
+<br><br>
+number 1<input type="text" id="num3">
+number 2<input type="text" id="num4">
+= <span id="result"></span><br>
+<button onclick="addition1()">Addition of tw number</button>
+
+    <script>
+        console.log('Hello world');
+a = true;
+b = false;
+console.log(typeof(a));
+    </script>
+
+<script>
+    alert("Hello from Alert..."); //On pageload shown
+
+function alertMgs() {
+    alert("Hello from Alert...on click"); //onclick
+}
+
+
+// document.write use for programmer
+document.write('Hello from write ...'); // on page load
+
+
+function WriteMgs(){
+document.write('Hello from write ...on click');  //on click
+}
+
+// prompt() takes input from user as a string
+num1 = Number(prompt('Enter first number...'));
+num2 = Number(prompt('Enter second number...'));
+
+// n1 = Number(num1);
+console.log(num1+num2);
+
+</script>
+<script>
+    // n1 and n2 are the values from user 
+    addition1 =() => {
+       n1 =  document.getElementById('num3').value;
+       n2 = document.getElementById('num4').value;
+        document.getElementById('result').innerHTML    =   Number(n1)+Number(n2);
+    }
+</script>
+
+</body>
+</html>

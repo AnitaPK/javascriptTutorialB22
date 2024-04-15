@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<ul id="result"></ul>
+
+
+
+
+    <script>
+        toDay = new Date().getDay();
+        console.log(toDay);
+
+switch (toDay){
+    case 0:
+        console.log('sunday');
+        break;
+    case 1:
+        console.log('Monday');
+        break;
+    case 2:
+        console.log('tue');
+        break;
+    case 3:
+        console.log('wed');
+        break;
+    case 4:
+        console.log('Thur');
+        break;
+    case 5:
+        console.log('fri');
+        break;
+    case 6:
+        console.log('sunday');
+        break;
+}
+
+toDay = 10;
+switch (toDay){
+   
+    case 1:
+        console.log('Monday');
+        break;
+    case 2:
+        console.log('tue');
+        break;
+    case 3:
+        console.log('wed');
+        break;
+    case 4:
+        console.log('Thur');
+        break;
+    case 5:
+        console.log('fri');
+        break;
+    case 6:
+    case 0:
+        console.log('Holiday');
+        break;
+    default:
+        console.log('NOt a correct day...')
+}
+
+// for(initialise; condition; increament){
+//     stmt;
+// }
+
+// 2 * 1 =
+// 2 * 2 =
+// 2 * 3 =
+// 2 * 4 =
+// 2 * 5 =
+// 2 * 6 =
+
+// 2 * 10 =
+
+
+for(i = 1; i <=10; i++){
+    console.log(2*i);
+    // document.getElementById('result').innerHTML = '2   *  '+ i + ' = ' + 2*i;
+    // document.getElementById('result').innerHTML = `<li>2   *   ${i}   =   2  *  ${i} </li>`;
+}
+
+
+tavbleNum = Number(prompt('enter number'));
+for(i = 1; i <=20; i++){
+    console.log(tavbleNum*i);
+    if(i==10){
+        break;
+        // continue;
+    }
+}
+
+
+
+// initial
+// while(condition){
+//     stmt;
+
+//     increament;
+// }
+
+a =1;
+while(a <=10){
+    console.log(2*a);
+    a++;
+}
+
+y = 5;
+while(y>=1){
+    console.log(y);
+    y--;
+}
+
+
+y = -5;
+do{
+    console.log('first print');
+    y--;
+
+}while(y>=0);
+
+n = 5;
+result = 1;
+for(i=n; i>=1; i--){
+    result = result * i;
+}
+
+//       i = 5            result* i                           result = 1
+// 1st    5               5                                 5
+// 2nd    4                5 * 4 = 20                       20
+// 3rd    3               20 * 3                            60
+// 4th    2               60 * 2                            120
+// 5th    1               120 * 1                           120
+// 6th    0           
+
+
+x = Math.random();         //  0  -     1
+console.log(x);
+
+x1 = Math.floor(Math.random() * 10) ;         //  1  -     9
+ 
+console.log(x1);
+
+x1 = Math.floor(Math.random() * 10 +1) ;         //  1  -     10
+
+
+
+
+
+
+    </script>
+</body>
+</html>

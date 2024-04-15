@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List with Drag and Drop</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+    h2 {
+        text-align: center;
+    }
+    .task-list {
+        list-style: none;
+        padding: 0;
+    }
+    .task-item {
+        background-color: #fff;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .task-item:hover {
+        background-color: #f0f0f0;
+    }
+    .task-item.dragging {
+        opacity: 0.5;
+    }
+    .edit-input {
+        width: calc(100% - 60px);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Add a new task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList" class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+</div>
+
+<script>
+    let tasks = [];
+
+    function addTask() {
+        const taskInput = document.getElementById('taskInput');
+        const taskName = taskInput.value.trim();
+        if (taskName !== '') {
+            const taskId = Date.now().toString();
+            const task = { id: taskId, name: taskName };
+            tasks.push(task);
+            displayTasks();
+            taskInput.value = '';
+        }
+    }
+
+    function deleteTask(taskId) {
+        tasks = tasks.filter(task => task.id !== taskId);
+        displayTasks();
+    }
+
+    function editTask(taskId, newName) {
+        tasks = tasks.map(task => {
+            if (task.id === taskId) {
+                return { ...task, name: newName };
+            }
+            return task;
+        });
+        displayTasks();
+    }
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drag(event, taskId) {
+        event.dataTransfer.setData('taskId', taskId);
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        const taskId = event.dataTransfer.getData('taskId');
+        const taskIndex = tasks.findIndex(task => task.id === taskId);
+        if (taskIndex !== -1) {
+            const task = tasks.splice(taskIndex, 1)[0];
+            tasks.splice(event.target.dataset.index, 0, task);
+            displayTasks();
+        }
+    }
+
+    function displayTasks() {
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = '';
+        tasks.forEach((task, index) => {
+            const li = document.createElement('li');
+            li.className = 'task-item';
+            li.draggable = true;
+            li.dataset.index = index;
+            li.setAttribute('ondragstart', `drag(event, '${task.id}')`);
+            li.textContent = task.name;
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.onclick = () => deleteTask(task.id);
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'Edit';
+            editBtn.onclick = () => {
+                const newName = prompt('Enter new task name:', task.name);
+                if (newName !== null) {
+                    editTask(task.id, newName.trim());
+                }
+            };
+            li.appendChild(deleteBtn);
+            li.appendChild(editBtn);
+            taskList.appendChild(li);
+        });
+    }
+
+    displayTasks();
+</script>
+
+</body>
+</html>

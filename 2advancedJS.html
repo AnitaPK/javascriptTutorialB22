@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="message"></div>
+
+    <script>
+        // var msg = document.getElementById("message");
+   
+        // function f1() {
+        //     setTimeout(function () {
+        //        msg.innerHTML += "<p>f1 is starting</p>";
+        //        msg.innerHTML += "<p>f1 is ending</p>";
+        //     }, 100);
+        // }
+        // function f2() {
+        //     msg.innerHTML += "<p>f2 is starting</p>";
+        //     f1();
+        //     msg.innerHTML += "<p>f2 is ending</p>";
+        // }
+   
+        // f2();
+
+
+
+        var msg = document.getElementById("message");
+   
+   function f1() {
+       return new Promise(function (resolve, reject) {
+           setTimeout(function () {
+           msg.innerHTML += "<p>f1 is starting</p>";
+               msg.innerHTML += "<p>f1 is ending</p>";
+               resolve();
+           }, 5000);
+       })
+   }
+
+   async function f2() {
+       msg.innerHTML += "<p>f2 is starting</p>";
+          
+       // Engine waits for f1() to finish it's 
+       // execution before executing the next line
+       await f1(); 
+       msg.innerHTML += "<p>f2 is ending</p>";
+   }
+
+   f2();
+   
+    </script>
+</body>
+</html>

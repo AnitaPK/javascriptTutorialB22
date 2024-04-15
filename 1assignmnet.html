@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="arrayInput" placeholder="1,2,3,4,5">
+    <button onclick="takeInput()">Submit</button>
+
+    <script>
+         function sumOfArray(arr) {
+            len = arr.length;
+            Sum = 0;
+	        for(let i=0; i<len;i++){
+                Sum += Number(arr[i]);  // Sum = Sum + arr[i];
+            }
+            return  Sum;
+        }
+
+//         document.getElementById("demo").innerHTML = numbers.reduce(getSum, 0);
+
+// function getSum(total, num) {
+//   return total + num;
+// }
+        // foreach, reduce, 
+        function takeInput(){
+        string1 = document.getElementById('arrayInput').value;
+        arr1 = string1.split(',');
+        console.log(arr1);
+        sumOfArr = sumOfArray(arr1);
+        console.log(sumOfArr);
+    //    sumarr2 =  arr1.forEach(elmn => {return  elmn**2;});
+      
+       
+    //    arr1 = [1,2,3];
+    //    sum = 0;
+    //    arr1.foreach(demoOne);
+
+    //    function demoOne(valueOfArrayElement){
+    //         sum +=valueOfArrayElement;
+    //    }
+       
+     !
+
+    //    demoOne = (elmn) =>{
+    //             sum += elmn;
+    //         }
+// foreach   all itteration
+// elmn   sum+=elmn
+
+
+        }
+       
+
+
+    </script>
+</body>
+</html>
